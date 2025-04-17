@@ -1,0 +1,25 @@
+{
+  "name": "devskiller",
+  "version": "1.0.0",
+  "description": "calculator for canonical interview",
+  "main": "calculator.js",
+  "scripts": {
+    "test": "mocha"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/web-138/calculator.git"
+  },
+  "author": "web138",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/web-138/calculator/issues"
+  },
+  "homepage": "https://github.com/web-138/calculator#readme",
+  "devDependencies": {
+    "mocha": "^11.1.0"
+  },
+  "dependencies": {
+    "devskiller": "file:"
+  }
+}
