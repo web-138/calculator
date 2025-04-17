@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevSkiller Mock Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question h3 {
+      margin-bottom: 10px;
+    }
+    .result {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+    #timer {
+      font-size: 1.2em;
+      color: red;
+      margin-bottom: 20px;
+    }
+    .explanation {
+      font-size: 0.95em;
+      color: #444;
+      margin-top: 5px;
+      display: none;
+    }
+    .explanation.visible {
+      display: block;
+    }
+    #restartBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #restartBtn:hover {
+      background-color: #0056b3;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>DevSkiller Mock Quiz</h2>
+  <div id="timer">Time left: 10:00</div>
+  <form id="quizForm">
+    <div class="question" data-correct="1" data-explanation="A stack uses the Last In First Out (LIFO) principle.">
+      <h3>1. Which data structure uses LIFO (Last In First Out)?</h3>
+      <label><input type="radio" name="q1" value="1"> Stack</label><br>
+      <label><input type="radio" name="q1" value="0"> Queue</label><br>
+      <label><input type="radio" name="q1" value="0"> Linked List</label>
+      <div class="explanation"></div>
+    </div>
+    <div class="question" data-correct="0" data-explanation="Docker containers are isolated environments, but they share the OS kernel.">
+      <h3>2. Which of these statements about Docker is false?</h3>
+      <label><input type="radio" name="q2" value="0"> Containers share the host OS kernel</label><br>
+      <label><input type="radio" name="q2" value="1"> Containers run a separate OS kernel</label><br>
+      <label><input type="radio" name="q2" value="0"> Containers are isolated environments</label>
+      <div class="explanation"></div>
+    </div>
+    <div class="question" data-correct="1" data-explanation="A binary search tree allows for efficient searching, insertion, and deletion.">
+      <h3>3. Which data structure is best for efficient searching and insertion?</h3>
+      <label><input type="radio" name="q3" value="0"> Stack</label><br>
+      <label><input type="radio" name="q3" value="1"> Binary Search Tree</label><br>
+      <label><input type="radio" name="q3" value="0"> Queue</label>
+      <div class="explanation"></div>
+    </div>
+    <div class="question" data-correct="1" data-explanation="The Dockerfile defines the steps needed to create a Docker image.">
+      <h3>4. What is the purpose of a Dockerfile?</h3>
+      <label><input type="radio" name="q4" value="0"> To run Docker images</label><br>
+      <label><input type="radio" name="q4" value="1"> To define instructions to build a Docker image</label><br>
+      <label><input type="radio" name="q4" value="0"> To push images to Docker Hub</label>
+      <div class="explanation"></div>
+    </div>
+    <div class="question" data-correct="0" data-explanation="A linked list allows efficient insertion and deletion at any point, especially at the beginning.">
+      <h3>5. Which data structure allows efficient insertion and deletion at the beginning?</h3>
+      <label><input type="radio" name="q5" value="0"> Linked List</label><br>
+      <label><input type="radio" name="q5" value="1"> Array</label><br>
+      <label><input type="radio" name="q5" value="0"> Stack</label>
+      <div class="explanation"></div>
+    </div>
+    <div class="question" data-correct="1" data-explanation="Docker Compose is used for defining and running multi-container Docker applications.">
+      <h3>6. What is Docker Compose used for?</h3>
+      <label><input type="radio" name="q6" value="0"> Building Docker images</label><br>
+      <label><input type="radio" name="q6" value="1"> Running multi-container applications</label><br>
+      <label><input type="radio" name="q6" value="0"> Deploying to Kubernetes</label>
+      <div class="explanation"></div>
+    </div>
+    <div class="question" data-correct="1" data-explanation="A hash table offers average-case constant time complexity for lookup.">
+      <h3>7. Which data structure provides the fastest average-case lookup time?</h3>
+      <label><input type="radio" name="q7" value="0"> Binary Search Tree</label><br>
+      <label><input type="radio" name="q7" value="1"> Hash Table</label><br>
+      <label><input type="radio" name="q7" value="0"> Stack</label>
+      <div class="explanation"></div>
+    </div>
+    <div class="question" data-correct="1" data-explanation="Docker images are built using instructions from a Dockerfile.">
+      <h3>8. How is a Docker image built?</h3>
+      <label><input type="radio" name="q8" value="0"> Using docker run</label><br>
+      <label><input type="radio" name="q8" value="1"> Using docker build</label><br>
+      <label><input type="radio" name="q8" value="0"> Using docker exec</label>
+      <div class="explanation"></div>
+    </div>
+    <div class="question" data-correct="1" data-explanation="A doubly linked list allows traversal in both directions.">
+      <h3>9. Which data structure allows bidirectional traversal?</h3>
+      <label><input type="radio" name="q9" value="0"> Stack</label><br>
+      <label><input type="radio" name="q9" value="1"> Doubly Linked List</label><br>
+      <label><input type="radio" name="q9" value="0"> Singly Linked List</label>
+      <div class="explanation"></div>
+    </div>
+    <div class="question" data-correct="0" data-explanation="Docker volumes are used to persist data across container restarts.">
+      <h3>10. What is the use of Docker volumes?</h3>
+      <label><input type="radio" name="q10" value="0"> Persisting data between container restarts</label><br>
+      <label><input type="radio" name="q10" value="1"> Logging container output</label><br>
+      <label><input type="radio" name="q10" value="0"> Monitoring CPU usage</label>
+      <div class="explanation"></div>
+    </div>
+    <button type="submit">Submit</button>
+  </form>
+  <div class="result" id="result"></div>
+  <button id="restartBtn" style="display:none;">Restart Quiz</button>
+</div>
+
+<script>
+  let time;
+  let countdown;
+  const timerEl = document.getElementById("timer");
+  const quizForm = document.getElementById("quizForm");
+  const restartBtn = document.getElementById("restartBtn");
+
+  function startTimer() {
+    time = 600;
+    timerEl.textContent = `Time left: 10:00`;
+    countdown = setInterval(() => {
+      const minutes = Math.floor(time / 60);
+      const seconds = time % 60;
+      timerEl.textContent = `Time left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+      time--;
+      if (time < 0) {
+        clearInterval(countdown);
+        quizForm.dispatchEvent(new Event('submit'));
+      }
+    }, 1000);
+  }
+
+  quizForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    clearInterval(countdown);
+    let score = 0;
+    const total = 10;
+    const questions = document.querySelectorAll('.question');
+
+    questions.forEach((question) => {
+      const correct = question.dataset.correct;
+      const explanation = question.dataset.explanation;
+      const selected = question.querySelector('input[type="radio"]:checked');
+      if (selected && selected.value === correct) {
+        score++;
+      }
+      const expDiv = question.querySelector('.explanation');
+      expDiv.innerHTML = `<strong>Explanation:</strong> ${explanation}`;
+      expDiv.classList.add("visible");
+    });
+
+    const result = document.getElementById("result");
+    result.textContent = `You scored ${score} out of ${total}`;
+    restartBtn.style.display = 'inline-block';
+  });
+
+  restartBtn.addEventListener("click", () => {
+    const inputs = quizForm.querySelectorAll('input[type="radio"]');
+    inputs.forEach(input => input.checked = false);
+
+    const explanations = quizForm.querySelectorAll('.explanation');
+    explanations.forEach(exp => {
+      exp.innerHTML = '';
+      exp.classList.remove("visible");
+    });
+
+    document.getElementById("result").textContent = '';
+    restartBtn.style.display = 'none';
+    startTimer();
+  });
+
+  startTimer();
+</script>
+</body>
+</html>

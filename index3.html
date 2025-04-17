@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DevSkiller Mock Quiz</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f4f4f4;
+      padding: 20px;
+    }
+    .container {
+      max-width: 700px;
+      margin: auto;
+      background: #fff;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    .question {
+      margin-bottom: 20px;
+    }
+    .question h3 {
+      margin-bottom: 10px;
+    }
+    .result {
+      font-weight: bold;
+      font-size: 1.2em;
+      margin-top: 20px;
+    }
+    #timer {
+      font-size: 1.2em;
+      color: red;
+      margin-bottom: 20px;
+    }
+    .explanation {
+      font-size: 0.95em;
+      color: #444;
+      margin-top: 5px;
+      display: none;
+    }
+    .explanation.visible {
+      display: block;
+    }
+    #restartBtn, #reviewBtn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: #fff;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    #restartBtn:hover, #reviewBtn:hover {
+      background-color: #0056b3;
+    }
+    #reviewBtn {
+      margin-left: 10px;
+      display: none;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <h2>DevSkiller Mock Quiz</h2>
+  <div id="timer">Time left: 10:00</div>
+  <form id="quizForm">
+    <!-- Docker Question -->
+    <div class="question" data-correct="1" data-explanation="Docker is a platform used to develop, ship, and run applications in containers.">
+      <h3>1. What is Docker used for?</h3>
+      <label><input type="radio" name="q1" value="1"> Containerization of applications</label><br>
+      <label><input type="radio" name="q1" value="0"> Web development framework</label><br>
+      <label><input type="radio" name="q1" value="0"> A type of database</label>
+      <div class="explanation"></div>
+    </div>
+
+    <!-- API Question -->
+    <div class="question" data-correct="0" data-explanation="REST APIs use HTTP methods like GET, POST, PUT, DELETE to interact with resources.">
+      <h3>2. What does REST stand for in REST API?</h3>
+      <label><input type="radio" name="q2" value="0"> Representational State Transfer</label><br>
+      <label><input type="radio" name="q2" value="1"> Resourceful Entity State Transfer</label><br>
+      <label><input type="radio" name="q2" value="0"> Real-time Environment Synchronization</label>
+      <div class="explanation"></div>
+    </div>
+
+    <!-- HTML Question -->
+    <div class="question" data-correct="1" data-explanation="The <div> element is a block-level element used for grouping and styling content.">
+      <h3>3. What is the <div> tag used for in HTML?</h3>
+      <label><input type="radio" name="q3" value="1"> Grouping and styling content</label><br>
+      <label><input type="radio" name="q3" value="0"> Adding a form input</label><br>
+      <label><input type="radio" name="q3" value="0"> Embedding media content</label>
+      <div class="explanation"></div>
+    </div>
+
+    <!-- Data Structures Question -->
+    <div class="question" data-correct="1" data-explanation="A stack is a linear data structure that follows the Last In First Out (LIFO) principle.">
+      <h3>4. Which data structure follows the Last In First Out (LIFO) principle?</h3>
+      <label><input type="radio" name="q4" value="1"> Stack</label><br>
+      <label><input type="radio" name="q4" value="0"> Queue</label><br>
+      <label><input type="radio" name="q4" value="0"> Array</label>
+      <div class="explanation"></div>
+    </div>
+
+    <!-- CSS Question -->
+    <div class="question" data-correct="1" data-explanation="In CSS, 'flexbox' is a layout model used to distribute space along a row or column.">
+      <h3>5. What is the purpose of flexbox in CSS?</h3>
+      <label><input type="radio" name="q5" value="1"> Layout model for distributing space</label><br>
+      <label><input type="radio" name="q5" value="0"> A color property</label><br>
+      <label><input type="radio" name="q5" value="0"> A font size unit</label>
+      <div class="explanation"></div>
+    </div>
+
+    <!-- JavaScript Question -->
+    <div class="question" data-correct="1" data-explanation="In JavaScript, 'let' is used to declare a variable that can be reassigned.">
+      <h3>6. What does the 'let' keyword do in JavaScript?</h3>
+      <label><input type="radio" name="q6" value="1"> Declares a variable that can be reassigned</label><br>
+      <label><input type="radio" name="q6" value="0"> Declares a constant variable</label><br>
+      <label><input type="radio" name="q6" value="0"> Defines a function</label>
+      <div class="explanation"></div>
+    </div>
+
+    <!-- Docker Question 2 -->
+    <div class="question" data-correct="0" data-explanation="Docker Compose is used for defining and running multi-container Docker applications.">
+      <h3>7. What is Docker Compose used for?</h3>
+      <label><input type="radio" name="q7" value="0"> To run multiple containers as a single application</label><br>
+      <label><input type="radio" name="q7" value="1"> To deploy containers to the cloud</label><br>
+      <label><input type="radio" name="q7" value="0"> To monitor container performance</label>
+      <div class="explanation"></div>
+    </div>
+
+    <!-- API Question 2 -->
+    <div class="question" data-correct="1" data-explanation="In REST APIs, the HTTP GET method is used to retrieve data from the server.">
+      <h3>8. What does the HTTP GET method do in REST API?</h3>
+      <label><input type="radio" name="q8" value="0"> Updates data on the server</label><br>
+      <label><input type="radio" name="q8" value="1"> Retrieves data from the server</label><br>
+      <label><input type="radio" name="q8" value="0"> Deletes data from the server</label>
+      <div class="explanation"></div>
+    </div>
+
+    <!-- HTML Question 2 -->
+    <div class="question" data-correct="1" data-explanation="In HTML, the <form> element is used to create an HTML form for user input.">
+      <h3>9. What is the purpose of the <form> tag in HTML?</h3>
+      <label><input type="radio" name="q9" value="1"> To collect user input</label><br>
+      <label><input type="radio" name="q9" value="0"> To create a navigation menu</label><br>
+      <label><input type="radio" name="q9" value="0"> To group related content</label>
+      <div class="explanation"></div>
+    </div>
+
+    <!-- Data Structures Question 2 -->
+    <div class="question" data-correct="0" data-explanation="A queue follows the First In First Out (FIFO) principle.">
+      <h3>10. Which data structure follows the First In First Out (FIFO) principle?</h3>
+      <label><input type="radio" name="q10" value="0"> Stack</label><br>
+      <label><input type="radio" name="q10" value="1"> Queue</label><br>
+      <label><input type="radio" name="q10" value="0"> Linked List</label>
+      <div class="explanation"></div>
+    </div>
+
+    <button type="submit">Submit</button>
+  </form>
+  <div class="result" id="result"></div>
+  <button id="restartBtn">Restart Quiz</button>
+  <button id="reviewBtn">Review Answers</button>
+</div>
+
+<script>
+  let time;
+  let countdown;
+  const timerEl = document.getElementById("timer");
+  const quizForm = document.getElementById("quizForm");
+  const restartBtn = document.getElementById("restartBtn");
+  const reviewBtn = document.getElementById("reviewBtn");
+
+  function startTimer() {
+    time = 600; // 10 minutes in seconds
+    timerEl.textContent = `Time left: 10:00`;
+    countdown = setInterval(() => {
+      const minutes = Math.floor(time / 60);
+      const seconds = time % 60;
+      timerEl.textContent = `Time left: ${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
+      time--;
+      if (time < 0) {
+        clearInterval(countdown);
+        quizForm.dispatchEvent(new Event('submit'));
+      }
+    }, 1000);
+  }
+
+  quizForm.addEventListener("submit", function (e) {
+    e.preventDefault();
+    clearInterval(countdown);
+    let score = 0;
+    const questions = document.querySelectorAll('.question');
+    const total = questions.length;
+
+    questions.forEach((question) => {
+      const correct = question.dataset.correct;
+      const explanation = question.dataset.explanation;
+      const selected = question.querySelector('input[type="radio"]:checked');
+      if (selected && selected.value === correct) {
+        score++;
+      }
+    });
+
+    const result = document.getElementById("result");
+    result.textContent = `You scored ${score} out of ${total}`;
+    restartBtn.style.display = 'inline-block';
+    reviewBtn.style.display = 'inline-block';
+  });
+
+  restartBtn.addEventListener("click", () => {
+    const inputs = quizForm.querySelectorAll('input[type="radio"]');
+    inputs.forEach(input => input.checked = false);
+
+    const explanations = quizForm.querySelectorAll('.explanation');
+    explanations.forEach(exp => {
+      exp.innerHTML = '';
+      exp.classList.remove("visible");
+    });
+
+    document.getElementById("result").textContent = '';
+    restartBtn.style.display = 'none';
+    reviewBtn.style.display = 'none';
+    startTimer();
+  });
+
+  reviewBtn.addEventListener("click", () => {
+    const questions = document.querySelectorAll('.question');
+    questions.forEach((question) => {
+      const explanation = question.dataset.explanation;
+      const expDiv = question.querySelector('.explanation');
+      expDiv.innerHTML = `<strong>Explanation:</strong> ${explanation}`;
+      expDiv.classList.add("visible");
+    });
+  });
+
+  startTimer();
+</script>
+</body>
+</html>
